@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<head>
+<title>jQuery with Css </title>
+<script src ="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+ $(document).ready(function(){
+
+	$("#b1").click(function(){
+       alert($("#p1").css("background-color"));
+       alert($("#p1").css("background-color"));
+       alert($("#p1").css("background-color"));
+
+	        });
+
+
+	$("#b1").click(function(){
+       alert($("#p1").css("background-color","yellow").css("color","blue"));
+       alert($("#p1").css("background-color","green"));
+       alert($("#p1").css("color","red"));
+
+	        });
+
+ });
+
+</script>
+<style>
+#p1{
+background-color:yellow;
+}
+
+#p2{
+background-color:green;
+}
+
+#p3{
+background-color:red;
+}
+
+
+</style>
+</head>
+<body>
+
+<p id="p1"> This Is the First Paragraph </p>
+<p id ="p2"> This Is the Second Paragraph </p>
+<p id ="p3"> This Is the Third Paragraph </p>
+
+
+
+<button id="b1"> Set </button>
+<button id="b2"> Get </button>
+
+
+</body>
+</html>
