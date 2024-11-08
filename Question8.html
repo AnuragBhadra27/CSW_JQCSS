@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+    <title>Student Data Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 5px;
+            margin: 5px;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .form-container {
+            margin-bottom: 20px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            
+            $("#addRow").click(function() {
+                let name = $("#name").val();
+                let age = $("#age").val();
+                let grade = $("#grade").val();
+
+                if (name && age && grade) {
+                    let newRow = `<tr>
+                        <td>${name}</td>
+                        <td>${age}</td>
+                        <td>${grade}</td>
+                    </tr>`;
+                    $("#studentTable tbody").append(newRow);
+
+                    // Clear input fields after adding
+                    $("#name").val('');
+                    $("#age").val('');
+                    $("#grade").val('');
+                } else {
+                    alert("Please fill in all fields.");
+                }
+            });
+
+
+            $("#deleteRow").click(function() {
+                $("#studentTable tbody tr:last").remove();
+            });
+
+            $("#changeColor").click(function() {
+                $("#studentTable td").css("color", "red");
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <h2>Student Data Table</h2>
+
+ <div class="form-container">
+     <input type="text" id="name" placeholder="Enter name">
+     <input type="text" id="age" placeholder="Enter age">
+    <input type="text" id="grade" placeholder="Enter grade">
+ </div>
+
+ <button id="addRow">Add Row</button>
+ <button id="deleteRow">Delete Row</button>
+ <button id="changeColor">Change Color</button>
+
+  <table id="studentTable">
+  <thead>
+ <tr>
+ <th>Name</th>
+<th>Age</th>
+<th>Grade</th>
+ </tr>
+  </thead>
+ <tbody>
+
+</tbody>
+ </table>
+
+</body>
+</html>
